@@ -3257,3 +3257,29 @@ footer .copyright { font-size: 12px; color: #aeb0ba; }
     height: 24px;
   }
 }
+
+
+/* Footer: direitos autorais e crédito de desenvolvimento em linhas separadas. */
+footer .footer-credits {
+  flex: 1 0 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-top: 3px;
+  text-align: center;
+}
+footer .footer-credits p {
+  flex: none;
+  margin: 0;
+  line-height: 1.6;
+}
+footer .footer-credits .copyright {
+  flex: none;
+  color: #d6d6d8;
+  font-size: 12px;
+}
+footer .footer-credits .developer-credit {
+  color: #bdbdc1;
+  font-size: 12px;
+}
