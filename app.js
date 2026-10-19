@@ -20,6 +20,18 @@ addEventListener('scroll', () => {
 }, { passive: true });
 
 const menu = document.querySelector('.service-menu');
+// Open the submenu on mouse hover without changing native click/touch/keyboard behavior.
+if (menu) {
+  const hoverPointer = matchMedia('(hover: hover) and (pointer: fine)');
+  menu.addEventListener('pointerenter', event => {
+    if (hoverPointer.matches && event.pointerType === 'mouse') menu.open = true;
+  });
+  menu.addEventListener('pointerleave', event => {
+    if (hoverPointer.matches && event.pointerType === 'mouse' && !menu.querySelector('nav').contains(document.activeElement)) {
+      menu.open = false;
+    }
+  });
+}
 document.addEventListener('click', e => { if (menu && !menu.contains(e.target)) menu.open = false; });
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && menu) menu.open = false; });
 

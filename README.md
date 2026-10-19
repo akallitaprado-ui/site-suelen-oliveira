@@ -11,7 +11,6 @@ Versão de testes com redesign monocromático e responsivo. Preparada para subst
 - `quinze.html`, `social.html`, `trafego.html` — páginas de serviços com visual unificado e revisão de grafia identificada.
 - `style.css` — estilos, degradês, efeitos de luz, adaptação para mobile e animações suaves.
 - `app.js` — interações, mudança dos tipos de parto, galerias, links e datas.
-- `data.js` — arquivo legado do projeto, mantido para não descartar nada; não é usado pelas páginas atuais.
 
 ## Valores de partos — 2026
 

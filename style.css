@@ -3244,3 +3244,16 @@ footer .copyright { font-size: 12px; color: #aeb0ba; }
   .quick-grid.home-five-grid > .quick-card:nth-child(4),
   .quick-grid.home-five-grid > .quick-card:nth-child(5) { grid-column: span 1; }
 }
+
+
+/* Hover corridor: keep the dropdown open while the mouse crosses the existing gap. */
+@media (hover: hover) and (pointer: fine) {
+  .service-menu[open] nav::before {
+    content: "";
+    position: absolute;
+    top: -24px;
+    left: 0;
+    right: 0;
+    height: 24px;
+  }
+}
