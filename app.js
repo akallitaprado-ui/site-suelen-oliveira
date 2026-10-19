@@ -128,7 +128,9 @@ function selectBirthType(kind, updateUrl = true) {
   if (updateUrl) {
     const url = new URL(window.location.href);
     url.searchParams.set('tipo', kind);
-    window.history.replaceState(null, '', url);
+    if (url.protocol === 'http:' || url.protocol === 'https:') {
+      window.history.replaceState(null, '', url);
+    }
   }
   // Os cartões escolhidos podem precisar ser revelados após saírem do estado oculto.
   if (reduced || !('IntersectionObserver' in window)) {
@@ -171,4 +173,18 @@ document.querySelectorAll('.date-request').forEach(form => {
     const message = `Olá, Suelen! Gostaria de consultar a disponibilidade para ${service} no dia ${date}. Podemos conversar?`;
     window.open('https://wa.me/5519999200399?text=' + encodeURIComponent(message), '_blank', 'noopener,noreferrer');
   });
+});
+
+
+// Lighting that follows the pointer inside selected cards; keyboard and touch are supported.
+document.querySelectorAll('.spotlight-card').forEach(card => {
+  card.addEventListener('pointermove', event => {
+    const bounds = card.getBoundingClientRect();
+    card.style.setProperty('--spot-x', `${((event.clientX - bounds.left) / bounds.width) * 100}%`);
+    card.style.setProperty('--spot-y', `${((event.clientY - bounds.top) / bounds.height) * 100}%`);
+  }, { passive: true });
+  card.addEventListener('pointerdown', () => card.classList.add('is-touched'));
+  ['pointerup', 'pointercancel', 'pointerleave'].forEach(name =>
+    card.addEventListener(name, () => card.classList.remove('is-touched'))
+  );
 });

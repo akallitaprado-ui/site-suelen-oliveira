@@ -1,42 +1,56 @@
-# Site Suelen Oliveira — cópia completa
+# Suelen Creative Co. — atualização visual 2026
 
-Versão 6, exportada em 18/10/2026. Código-fonte HTML, CSS e JavaScript editável, com fotos, logos e fontes locais.
+Versão de testes com redesign monocromático e responsivo. Preparada para substituir os arquivos de código do repositório atual **sem apagar a pasta `assets/`**, que já contém as fotos, logotipos e fontes originais.
 
-## Guardar no GitHub
-1. Extraia o ZIP no computador (clique com o botão direito > Extrair tudo).
-2. Entre em https://github.com e crie um repositório chamado site-suelen-oliveira.
-3. Para guardar uma cópia sem disponibilizar o código a outras pessoas, escolha Private. Para publicar pelo GitHub Pages no plano gratuito, use um repositório público.
-4. Abra o repositório e escolha Add file > Upload files (ou uploading an existing file, se estiver vazio).
-5. Abra a pasta extraída site-suelen-oliveira e envie TODO O CONTEÚDO dela, incluindo a pasta assets. Não envie apenas o ZIP nem uma pasta extra envolvendo o site.
-6. Clique em Commit changes. Confirme que index.html aparece na raiz, ao lado de style.css, app.js e assets.
+## Arquivos do pacote
 
-## Publicar pelo GitHub Pages
-1. No repositório, abra Settings > Pages.
-2. Em Build and deployment > Source, escolha Deploy from a branch.
-3. Escolha a branch main e a pasta / (root). Clique em Save.
-4. Aguarde a publicação e abra o endereço exibido pelo GitHub em Pages.
-5. Confira a página inicial, as seis páginas de serviços e os botões pelo celular.
+- `index.html` — nova página inicial, cinco cartões, seção “Quem sou eu” e agenda até 2026.
+- `parto.html` — parto normal e cesárea na mesma página, escolha de modalidade, três pacotes em cada uma, galerias, depoimentos e condições visíveis.
+- `normal.html` e `cesarea.html` — redirecionamento dos links antigos para a página unificada, já selecionando a modalidade correspondente.
+- `casamento.html` — planos na sequência **Noiva, Luxo, Premium** (respectivos valores e conteúdo preservados).
+- `quinze.html`, `social.html`, `trafego.html` — páginas de serviços com visual unificado e revisão de grafia identificada.
+- `style.css` — estilos, degradês, efeitos de luz, adaptação para mobile e animações suaves.
+- `app.js` — interações, mudança dos tipos de parto, galerias, links e datas.
+- `data.js` — arquivo legado do projeto, mantido para não descartar nada; não é usado pelas páginas atuais.
 
-Documentação oficial: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
-A disponibilidade de Pages para repositórios privados depende do plano GitHub. Um repositório público deixa os arquivos visíveis para outras pessoas.
+## Valores de partos — 2026
 
-## Funcionalidades preservadas
-- Layout adaptável a celular e computador.
-- Efeito de luz no topo com cursor, animações e respeito à preferência por movimento reduzido.
-- Páginas de parto normal, cesárea, casamento, 15 anos, social media e tráfego pago.
-- Galerias com ampliação, depoimentos e detalhes dos planos.
-- Links de WhatsApp e Instagram.
-- Formulário de serviço/data que abre uma mensagem no WhatsApp.
+| Modalidade | Fotografia | Vídeo | Foto + vídeo |
+|---|---:|---:|---:|
+| Parto normal | R$ 750,00 | R$ 750,00 | R$ 1.000,00 |
+| Cesárea | R$ 400,00 | R$ 400,00 | R$ 650,00 |
 
-A data não é reservada automaticamente e não há consulta a uma agenda de horários ocupados. Suelen confirma a disponibilidade pelo WhatsApp. O formulário atual permite datas de 2026 e 2027; para anos posteriores, atualize os atributos min e max dos campos de data nos HTMLs.
+### Condições de pagamento preservadas
 
-## Editar ou hospedar em outro lugar
-index.html é a página inicial. Os demais arquivos HTML são as páginas de serviço. style.css define o visual; app.js contém as interações; assets guarda imagens e fontes. Não é necessário instalar Node, compilar nem ter banco de dados. Mantenha os nomes dos arquivos e a estrutura de pastas. data.js é um arquivo legado, não utilizado pelas páginas atuais.
+- **Parto normal:** sinal de 10% e assinatura de contrato; à vista via Pix ou depósito; cartão em até 6 vezes com juros a consultar.
+- **Cesárea:** sinal de R$ 50,00 para reservar; restante até um dia antes do parto; Pix ou cartão em até 3 vezes com juros a consultar.
+- As observações, autorização da equipe/maternidade, prazos, remarcação e cancelamento estão visíveis na página de partos. Confirme o teor contratual final com a Suelen antes da divulgação definitiva.
 
-Para visualizar no computador, abra index.html. Para hospedar em outro servidor estático, envie os mesmos arquivos, mantendo index.html na raiz. Um domínio próprio pode ser configurado depois no serviço de hospedagem escolhido.
+## Instalação segura no VS Code — Windows
 
-## Cópia de segurança
-Guarde este ZIP em seu computador e mantenha outra cópia independente. Depois de alterar o site, atualize os arquivos no GitHub e o seu backup. Esta cópia corresponde à versão exportada, não recebe alterações futuras automaticamente.
+1. **Não apague sua pasta original.** Faça primeiro uma cópia de segurança do diretório do site, especialmente `assets/`.
+2. No VS Code, confira que você está na branch `teste-traco-partos-traco-2026`, **não** na `main`.
+3. Extraia este ZIP em uma pasta separada, fora do repositório.
+4. Abra a pasta original `site-suelen-oliveira` no Explorador de Arquivos do Windows.
+5. Copie os arquivos da pasta extraída para a raiz de `site-suelen-oliveira`, ao lado de `index.html`. Confirme **Substituir arquivos no destino** para os arquivos repetidos.
+6. **Não exclua a pasta `assets/` existente.** Ela contém as imagens, logos e fontes usadas no site. Elas não estão duplicadas neste ZIP.
+7. Volte ao VS Code. Abra `index.html` no navegador e teste todos os cartões, principalmente o botão **Partos**. Dentro de `parto.html`, teste a troca entre Parto normal e Cesárea, os três valores, galerias, formas de pagamento e consulta da agenda.
+8. Confirme também a página `casamento.html` e as demais páginas, no computador e no celular.
+9. Quando estiver aprovado: `Ctrl + Shift + G` → mensagem de commit → **Commit** → **Sync Changes** ou **Publish Branch** se solicitado. Isso envia só a branch de teste.
+10. No GitHub, abra um **Pull Request** da branch `teste-traco-partos-traco-2026` para a `main`, confira as mudanças e só então faça **Merge**. O GitHub Pages, que já está configurado na `main`, publicará a nova versão após o deploy.
 
-Origem da versão: commit 684bfe81a1817e094f35d6ae8bbaddf7fc7c3ed6.
-Nenhuma conta GitHub foi conectada ou repositório criado por esta exportação.
+> Não altere `Settings > Pages > Branch` para publicar esta atualização. A origem atual deve continuar `main / (root)`.
+
+## Importante sobre fotos e fontes
+
+O ZIP reúne **todos os arquivos de código e páginas da atualização**, mas não duplica as imagens e fontes da pasta `assets/`, pois essa pasta já existe no seu repositório e computador. Para conferir a aparência correta, execute a versão na pasta original do projeto, com `assets/` presente. Se abrir a pasta extraída isoladamente, imagens/logotipo poderão não aparecer.
+
+As fontes Inter e Manrope são carregadas pela internet quando disponível. Sem conexão, o site usa a tipografia local/sistema como alternativa. O site não precisa de Node, banco de dados nem build.
+
+## Notas funcionais
+
+- A consulta de agenda **não reserva automaticamente** uma data e não verifica disponibilidade em tempo real. Ela prepara uma mensagem para o WhatsApp da Suelen.
+- O calendário fica limitado a **31 de dezembro de 2026**. A agenda de 2027 é anunciada como *em breve*, sem oferecer reserva para esse ano.
+- Links antigos para `normal.html` ou `cesarea.html` continuam funcionando por meio de um redirecionamento para `parto.html`.
+- As animações respeitam a preferência de movimento reduzido e os efeitos de toque têm alternativa para telas móveis.
+- Antes de colocar no ar, vale conferir pessoalmente todas as regras contratuais e descrições de serviços da cliente.
