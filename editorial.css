@@ -1,6 +1,6 @@
 /* Vitrine editorial — extensão sobre o CSS e as fontes originais. */
 .editorial-main{overflow:clip}
-.ed-eyebrow{font-size:10px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--muted);margin:0 0:18px}
+.ed-eyebrow{font-size:10px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--muted);margin:0 0 18px}
 .ed-hero,.ed-service-hero{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,88px);align-items:center;padding-top:clamp(46px,7vw,110px);padding-bottom:clamp(60px,8vw,120px)}
 .ed-hero-copy{max-width:630px}
 .ed-hero-logo{width:min(210px,55%);height:auto;object-fit:contain;margin:0 0 36px;display:block}
