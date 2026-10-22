@@ -113,11 +113,13 @@ document.querySelectorAll('.review-track').forEach(track => {
 
 const aura = document.querySelector('.brand-hero');
 if (aura && !reduced) {
-  aura.addEventListener('pointermove', event => {
+  const moveAuraGlow = event => {
     const r = aura.getBoundingClientRect();
     aura.style.setProperty('--mx', (event.clientX - r.left) / r.width * 100 + '%');
     aura.style.setProperty('--my', (event.clientY - r.top) / r.height * 100 + '%');
-  });
+  };
+  aura.addEventListener('pointermove', moveAuraGlow, { passive: true });
+  aura.addEventListener('pointerdown', moveAuraGlow, { passive: true });
 }
 
 // Alternância entre os tipos de parto (incluindo links compartilháveis).
