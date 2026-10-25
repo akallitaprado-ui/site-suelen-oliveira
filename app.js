@@ -112,7 +112,7 @@ document.querySelectorAll('.review-track').forEach(track => {
 });
 
 const aura = document.querySelector('.brand-hero');
-if (aura && !reduced) {
+if (aura && !reduced && matchMedia('(hover: hover) and (pointer: fine)').matches) {
   const moveAuraGlow = event => {
     const r = aura.getBoundingClientRect();
     aura.style.setProperty('--mx', (event.clientX - r.left) / r.width * 100 + '%');
@@ -163,6 +163,7 @@ if (birthChoices.length) {
 // Lighting that follows the pointer inside selected cards; keyboard and touch are supported.
 document.querySelectorAll('.spotlight-card').forEach(card => {
   card.addEventListener('pointermove', event => {
+    if (reduced || event.pointerType !== 'mouse') return;
     const bounds = card.getBoundingClientRect();
     card.style.setProperty('--spot-x', `${((event.clientX - bounds.left) / bounds.width) * 100}%`);
     card.style.setProperty('--spot-y', `${((event.clientY - bounds.top) / bounds.height) * 100}%`);
@@ -172,3 +173,4 @@ document.querySelectorAll('.spotlight-card').forEach(card => {
     card.addEventListener(name, () => card.classList.remove('is-touched'))
   );
 });
+

@@ -3383,3 +3383,25 @@ footer .footer-credits .developer-credit {
   from { opacity: .58; }
   to { opacity: 1; }
 }
+
+
+/* Entrada suave sem deslocar imagens, criar camadas de filtro ou atrasar cartões. */
+.reveal.arrived,
+.birth-journey .reveal.arrived {
+  animation: content-fade .25s ease-out both;
+  animation-delay: 0s !important;
+}
+.site-home .hero-intro.reveal.arrived,
+.site-home .quick-services.reveal.arrived,
+.about-image.reveal.arrived,
+.mini-gallery.reveal.arrived {
+  animation: none;
+}
+@keyframes content-fade {
+  from { opacity: .8; }
+  to { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal.arrived,
+  .birth-journey .reveal.arrived { animation: none; }
+}
