@@ -12,6 +12,16 @@
   </title>
   <meta content="Suelen Oliveira: fotografia de parto, storymaker e estratégia digital. Conheça os serviços e solicite um orçamento personalizado." name="description"/>
   <link href="style.css?v=15" rel="stylesheet"/>
+
+  <style>
+   .about-future .about-portrait-frame .about-slide { opacity:0; transition:opacity .85s ease; }
+   .about-future .about-portrait-frame .about-slide.is-active { opacity:1; }
+   .about-future .about-slide-controls { position:absolute;bottom:63px;left:0;right:0;z-index:4;display:flex;justify-content:center;gap:9px; }
+   .about-future .about-slide-dot { width:11px;height:11px;min-width:11px;padding:0;border:1px solid #fff;background:#ffffff80;border-radius:50%;cursor:pointer;box-shadow:0 1px 5px #0005;transition:background .2s,transform .2s; }
+   .about-future .about-slide-dot.is-active { background:#fff;transform:scale(1.2); }
+   .about-future .about-slide-dot:focus-visible { outline:2px solid #fff;outline-offset:4px; }
+   @media(prefers-reduced-motion:reduce){.about-future .about-portrait-frame .about-slide{transition:none}}
+  </style>
  </head>
  <body class="site-home">
   <a class="skip" href="#conteudo">
@@ -227,15 +237,18 @@
    </section>
    <section aria-labelledby="about-title" class="about-white soft-about about-future" id="sobre">
     <div class="about wrap">
-     <div class="about-image about-portrait-frame reveal">
-      <img alt="Retrato de Suelen Oliveira" height="630" loading="lazy" src="assets/birth-1.jpg" width="420"/>
-      <span class="portrait-caption">
-       SUELEN OLIVEIRA
-       <span aria-hidden="true">
-        ✳
-       </span>
-       CREATIVE CO.
-      </span>
+     <div class="about-image about-portrait-frame reveal" data-about-carousel aria-label="Galeria de fotos de Suelen Oliveira">
+      <img class="about-slide is-active" data-about-slide src="assets/suelen-about-01.webp" alt="Suelen com notebook e xícara" width="480" height="720" loading="lazy" decoding="async"/>
+      <img class="about-slide" data-about-slide src="assets/suelen-about-02.webp" alt="Suelen sentada com roupa preta" width="480" height="720" loading="lazy" decoding="async" aria-hidden="true"/>
+      <img class="about-slide" data-about-slide src="assets/suelen-about-03.webp" alt="Suelen sentada com roupa clara" width="480" height="720" loading="lazy" decoding="async" aria-hidden="true"/>
+      <img class="about-slide" data-about-slide src="assets/suelen-about-04.webp" alt="Suelen produzindo vídeo com o celular" width="480" height="720" loading="lazy" decoding="async" aria-hidden="true"/>
+      <span class="portrait-caption">SUELEN OLIVEIRA <span aria-hidden="true">✳</span> CREATIVE CO.</span>
+      <div class="about-slide-controls" role="group" aria-label="Escolher foto">
+       <button type="button" class="about-slide-dot is-active" data-about-dot aria-label="Mostrar foto 1 de 4" aria-pressed="true"></button>
+       <button type="button" class="about-slide-dot" data-about-dot aria-label="Mostrar foto 2 de 4" aria-pressed="false"></button>
+       <button type="button" class="about-slide-dot" data-about-dot aria-label="Mostrar foto 3 de 4" aria-pressed="false"></button>
+       <button type="button" class="about-slide-dot" data-about-dot aria-label="Mostrar foto 4 de 4" aria-pressed="false"></button>
+      </div>
      </div>
      <div class="about-copy reveal">
       <p class="eyebrow">
@@ -317,6 +330,44 @@
    </div>
   </footer>
   <script defer="" src="app.js?v=15">
+  </script>
+
+  <script>
+   (() => {
+    const root = document.querySelector('[data-about-carousel]');
+    if (!root) return;
+    const slides = Array.from(root.querySelectorAll('[data-about-slide]'));
+    const dots = Array.from(root.querySelectorAll('[data-about-dot]'));
+    let current = 0;
+    let timer;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const show = (next) => {
+     current = (next + slides.length) % slides.length;
+     slides.forEach((slide, index) => {
+      const active = index === current;
+      slide.classList.toggle('is-active', active);
+      slide.setAttribute('aria-hidden', String(!active));
+     });
+     dots.forEach((dot, index) => {
+      const active = index === current;
+      dot.classList.toggle('is-active', active);
+      dot.setAttribute('aria-pressed', String(active));
+     });
+    };
+    const stop = () => window.clearInterval(timer);
+    const start = () => {
+     stop();
+     if (!reducedMotion && !document.hidden) timer = window.setInterval(() => show(current + 1), 4500);
+    };
+    dots.forEach((dot, index) => dot.addEventListener('click', () => { show(index); start(); }));
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('mouseleave', start);
+    root.addEventListener('focusin', stop);
+    root.addEventListener('focusout', (event) => { if (!root.contains(event.relatedTarget)) start(); });
+    document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
+    show(0);
+    start();
+   })();
   </script>
  </body>
 </html>
