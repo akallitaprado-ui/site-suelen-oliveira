@@ -238,10 +238,10 @@
    <section aria-labelledby="about-title" class="about-white soft-about about-future" id="sobre">
     <div class="about wrap">
      <div class="about-image about-portrait-frame reveal" data-about-carousel aria-label="Galeria de fotos de Suelen Oliveira">
-      <img class="about-slide is-active" data-about-slide src="assets/suelen-about-01.webp" alt="Suelen com notebook e xícara" width="480" height="720" loading="lazy" decoding="async"/>
-      <img class="about-slide" data-about-slide src="assets/suelen-about-02.webp" alt="Suelen sentada com roupa preta" width="480" height="720" loading="lazy" decoding="async" aria-hidden="true"/>
-      <img class="about-slide" data-about-slide src="assets/suelen-about-03.webp" alt="Suelen sentada com roupa clara" width="480" height="720" loading="lazy" decoding="async" aria-hidden="true"/>
-      <img class="about-slide" data-about-slide src="assets/suelen-about-04.webp" alt="Suelen produzindo vídeo com o celular" width="480" height="720" loading="lazy" decoding="async" aria-hidden="true"/>
+      <img class="about-slide is-active" data-about-slide src="assets/suelen-about-01.webp" alt="Suelen sentada com roupa clara" width="480" height="720" loading="lazy" decoding="async"/>
+      <img class="about-slide" data-about-slide src="assets/suelen-about-02.webp" alt="Suelen fotografando com o celular diante do espelho" width="480" height="720" loading="lazy" decoding="async" aria-hidden="true"/>
+      <img class="about-slide" data-about-slide src="assets/suelen-about-03.webp" alt="Suelen sentada com notebook" width="480" height="720" loading="lazy" decoding="async" aria-hidden="true"/>
+      <img class="about-slide" data-about-slide src="assets/suelen-about-04.webp" alt="Suelen segurando notebook e xícara" width="480" height="720" loading="lazy" decoding="async" aria-hidden="true"/>
       <span class="portrait-caption">SUELEN OLIVEIRA <span aria-hidden="true">✳</span> CREATIVE CO.</span>
       <div class="about-slide-controls" role="group" aria-label="Escolher foto">
        <button type="button" class="about-slide-dot is-active" data-about-dot aria-label="Mostrar foto 1 de 4" aria-pressed="true"></button>
@@ -357,7 +357,7 @@
     const stop = () => window.clearInterval(timer);
     const start = () => {
      stop();
-     if (!reducedMotion && !document.hidden) timer = window.setInterval(() => show(current + 1), 4500);
+     if (!reducedMotion && !document.hidden) timer = window.setInterval(() => show(current + 1), 3500);
     };
     dots.forEach((dot, index) => dot.addEventListener('click', () => { show(index); start(); }));
     root.addEventListener('mouseenter', stop);
